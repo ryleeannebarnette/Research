@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications &amp; Projects — Voss Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero{ padding: 64px 0 40px; }
+
+  .filter-row{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 34px; }
+  .filter-btn{
+    font-family: var(--mono); font-size:0.78rem;
+    padding: 8px 14px; border:1px solid var(--line-strong); border-radius:3px;
+    background:transparent; color: var(--text-dim); cursor:pointer;
+  }
+  .filter-btn.active, .filter-btn:hover{ color:#fff; border-color: var(--cyan); background: var(--cyan-dim); }
+
+  .pub{
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px 26px;
+    margin-bottom: 14px;
+    display:flex; justify-content:space-between; gap: 24px; flex-wrap:wrap;
+    background: var(--surface);
+  }
+  .pub-main{ max-width: 640px; }
+  .pub h3{ font-size: 1.02rem; margin-bottom: 6px; color: #fff; }
+  .pub .authors{ color: var(--text-dim); font-size:0.9rem; margin-bottom: 6px; }
+  .pub .venue{ font-family: var(--mono); font-size: 0.76rem; color: var(--cyan); }
+  .pub .side{ display:flex; flex-direction:column; align-items:flex-end; gap:10px; justify-content:center; }
+  .pub .year{ font-family: var(--display); font-size:1.3rem; color: var(--text-faint); }
+
+  .proj-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  @media (max-width: 760px){ .proj-grid{ grid-template-columns:1fr; } }
+  .proj{
+    border:1px solid var(--line); border-radius:5px; padding: 26px;
+    background: var(--surface);
+  }
+  .proj .stack{ margin-top: 14px; display:flex; gap:8px; flex-wrap:wrap; }
+  .proj a.repo{ font-family: var(--mono); font-size: 0.8rem; color: var(--violet); display:inline-block; margin-top:14px; }
+  .proj a.repo:hover{ color: var(--cyan); }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <span class="node"></span>
+      <span>VOSS LAB<small>Computational Crystal Chemistry</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="work.html">Publications &amp; Projects</a>
+      <a href="about.html">About</a>
+      <a href="join.html">Join the Lab</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="kicker"><span class="rule"></span>OUR WORK</div>
+    <h1>Publications &amp; open-source projects</h1>
+    <p class="lead">Peer-reviewed work from the group, plus the software we build and maintain along the way. Replace the entries below with your actual publication list.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="filter-row" role="group" aria-label="Filter publications">
+      <button class="filter-btn active" data-filter="all">all</button>
+      <button class="filter-btn" data-filter="journal">journal articles</button>
+      <button class="filter-btn" data-filter="preprint">preprints</button>
+      <button class="filter-btn" data-filter="conference">conference</button>
+    </div>
+
+    <div id="pub-list">
+      <div class="pub" data-type="journal">
+        <div class="pub-main">
+          <h3>Screening non-centrosymmetric crystals for three-photon spontaneous parametric down-conversion</h3>
+          <div class="authors">Voss, E.; [Student Name]; [Student Name]</div>
+          <div class="venue">Journal of Physical Chemistry C · placeholder entry</div>
+        </div>
+        <div class="side"><span class="year">2026</span><a class="btn" href="#">read paper</a></div>
+      </div>
+
+      <div class="pub" data-type="preprint">
+        <div class="pub-main">
+          <h3>A machine-learned surrogate for nonlinear susceptibility tensors in candidate photonic crystals</h3>
+          <div class="authors">[Student Name]; Voss, E.</div>
+          <div class="venue">arXiv preprint · placeholder entry</div>
+        </div>
+        <div class="side"><span class="year">2025</span><a class="btn" href="#">read paper</a></div>
+      </div>
+
+      <div class="pub" data-type="journal">
+        <div class="pub-main">
+          <h3>Phonon stability as a fast pre-filter for high-throughput crystal screening</h3>
+          <div class="authors">Voss, E.; [Student Name]</div>
+          <div class="venue">Computational Materials Science · placeholder entry</div>
+        </div>
+        <div class="side"><span class="year">2025</span><a class="btn" href="#">read paper</a></div>
+      </div>
+
+      <div class="pub" data-type="conference">
+        <div class="pub-main">
+          <h3>Toward automated multiscale screening pipelines for quantum photonic materials</h3>
+          <div class="authors">Voss, E.; lab group</div>
+          <div class="venue">ACS National Meeting, poster · placeholder entry</div>
+        </div>
+        <div class="side"><span class="year">2024</span><a class="btn" href="#">read poster</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>OPEN-SOURCE TOOLING</div>
+      <h2>Software the lab maintains</h2>
+      <p>Undergraduates in the group regularly contribute to these — see the Join page for how to get involved.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj">
+        <h3>latticescreen</h3>
+        <p>A Python + bash pipeline that automates structure filtering, DFT job submission, and result parsing across an HPC cluster, turning a folder of crystal files into a ranked shortlist.</p>
+        <div class="stack"><span class="chip mono">Python</span><span class="chip mono">Bash</span><span class="chip mono">SLURM</span></div>
+        <a class="repo" href="#">view repository →</a>
+      </div>
+      <div class="proj">
+        <h3>tensorviz</h3>
+        <p>A small visualization utility for inspecting nonlinear susceptibility tensors and phase-matching surfaces, built on top of our VESTA and OVITO workflows.</p>
+        <div class="stack"><span class="chip mono">Python</span><span class="chip mono">matplotlib</span></div>
+        <a class="repo" href="#">view repository →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Voss Lab, Department of Chemistry · [University Name]</p>
+    <div class="flinks">
+      <a href="about.html#contact">Contact</a>
+      <a href="work.html">Publications</a>
+      <a href="join.html">Join the lab</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.pub').forEach(p => {
+        p.style.display = (f === 'all' || p.dataset.type === f) ? 'flex' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

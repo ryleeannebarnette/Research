@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Voss Lab</title>
+<meta name="description" content="Multiscale computational methodology for identifying crystals suited to entangled photon triplet generation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero{ padding: 64px 0 50px; }
+  .page-hero .kicker{ margin-bottom:16px; }
+  .page-hero p.lead{ max-width: 700px; }
+
+  /* entanglement demo */
+  .demo-card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 40px var(--edge);
+    display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;
+  }
+  .photon-rig{ display:flex; gap: 26px; align-items:center; }
+  .photon{
+    width: 22px; height:22px; border-radius:50%;
+    background: var(--text-faint);
+    box-shadow: none;
+    transition: background .4s ease, box-shadow .4s ease;
+  }
+  .photon.entangled{
+    background: radial-gradient(circle at 35% 35%, #fff, var(--cyan) 60%);
+    box-shadow: 0 0 18px 4px var(--cyan-dim);
+    animation: photonpulse 1.8s ease-in-out infinite;
+  }
+  .photon:nth-child(2).entangled{ box-shadow: 0 0 18px 4px var(--violet-dim); background: radial-gradient(circle at 35% 35%, #fff, var(--violet) 60%); animation-delay:.1s; }
+  .photon:nth-child(3).entangled{ box-shadow: 0 0 18px 4px rgba(255,176,102,.35); background: radial-gradient(circle at 35% 35%, #fff, var(--amber) 60%); animation-delay:.2s; }
+  @keyframes photonpulse{ 0%,100%{ transform:scale(1);} 50%{ transform:scale(1.35);} }
+  .demo-text{ max-width: 380px; }
+  #entangle-status{ font-family: var(--mono); font-size:0.78rem; color: var(--text-faint); display:block; margin-top:14px; min-height: 2.6em; }
+
+  /* pipeline accordion */
+  .pipe-step{
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 12px;
+    background: var(--surface);
+    overflow:hidden;
+  }
+  .pipe-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 20px 24px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .pipe-head .left{ display:flex; align-items:center; gap:16px; }
+  .pipe-head .idx{ font-family: var(--mono); color: var(--cyan); font-size:0.82rem; width: 26px; }
+  .pipe-head h3{ margin:0; font-size:1rem; color:#fff; }
+  .pipe-head .chev{ color: var(--text-faint); transition: transform .25s ease; font-family: var(--mono); }
+  .pipe-step.open .chev{ transform: rotate(45deg); }
+  .pipe-body{
+    max-height:0; overflow:hidden; transition: max-height .3s ease;
+    padding: 0 24px;
+  }
+  .pipe-step.open .pipe-body{ max-height: 260px; padding: 0 24px 22px; }
+  .pipe-body p{ margin:0; color: var(--text-dim); font-size: 0.95rem; }
+  .pipe-body .tools{ margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
+
+  /* toolbelt */
+  .tool-row{ display:flex; gap: 14px; flex-wrap:wrap; }
+  .tool-row .chip{ font-size:0.78rem; padding:7px 12px; }
+
+  .interest-list{ display:grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+  .interest-list li{ list-style:none; padding-left: 22px; position:relative; color: var(--text-dim); margin-bottom: 14px; max-width: 46ch; }
+  .interest-list li::before{ content:""; position:absolute; left:0; top:9px; width:8px; height:8px; background: var(--violet); border-radius:1px; transform: rotate(45deg); }
+  @media (max-width:700px){ .interest-list{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <span class="node"></span>
+      <span>VOSS LAB<small>Computational Crystal Chemistry</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="work.html">Publications &amp; Projects</a>
+      <a href="about.html">About</a>
+      <a href="join.html">Join the Lab</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="kicker"><span class="rule"></span>RESEARCH INTERESTS</div>
+    <h1>A multiscale route to photon-triplet crystals</h1>
+    <p class="lead">Most photonic quantum-computing proposals rely on entangled photon <em>pairs</em>, produced by spontaneous parametric down-conversion. Far less is known about crystals that can split a pump photon into three entangled photons at once — a process with stricter symmetry and nonlinear-response requirements. Our group computationally identifies and characterizes candidate crystals for this process, and builds the software pipeline that makes the search tractable.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="demo-card">
+      <div class="photon-rig" aria-hidden="false">
+        <span class="photon"></span>
+        <span class="photon"></span>
+        <span class="photon"></span>
+      </div>
+      <div class="demo-text">
+        <h3>Why triplets are harder than pairs</h3>
+        <p style="margin-bottom:10px;">A three-photon down-conversion event requires a crystal with the right third-order nonlinear susceptibility and phase-matching geometry — rare in nature, and expensive to check for computationally, one crystal at a time.</p>
+        <button id="entangle-btn" class="btn primary">entangle photons</button>
+        <span id="entangle-status" class="mono">state: independent, uncorrelated photons</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>METHODOLOGY</div>
+      <h2>The multiscale pipeline</h2>
+      <p>Click a stage to see what happens there and which tools we use.</p>
+    </div>
+
+    <div class="pipeline-accordion">
+      <div class="pipe-step open">
+        <div class="pipe-head">
+          <div class="left"><span class="idx">01</span><h3>Structure ingestion &amp; symmetry filtering</h3></div>
+          <span class="chev">＋</span>
+        </div>
+        <div class="pipe-body">
+          <p>Candidate crystal structures are pulled from open structure databases and filtered by point-group symmetry — only non-centrosymmetric crystals can show the nonlinear response we need.</p>
+          <div class="tools"><span class="chip mono">Python</span><span class="chip mono">pymatgen</span><span class="chip mono">bash batch scripts</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-head">
+          <div class="left"><span class="idx">02</span><h3>Electronic structure (DFT) &amp; phonons</h3></div>
+          <span class="chev">＋</span>
+        </div>
+        <div class="pipe-body">
+          <p>Surviving candidates go through density-functional-theory relaxation and phonon calculations to confirm dynamical stability before any expensive optical-property calculation is attempted.</p>
+          <div class="tools"><span class="chip mono">VASP / Quantum ESPRESSO</span><span class="chip mono">phonopy</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-head">
+          <div class="left"><span class="idx">03</span><h3>Nonlinear-optical response</h3></div>
+          <span class="chev">＋</span>
+        </div>
+        <div class="pipe-body">
+          <p>We compute third-order nonlinear susceptibility tensors and phase-matching conditions to test whether a stable, symmetry-allowed crystal can actually support three-photon down-conversion.</p>
+          <div class="tools"><span class="chip mono">DFPT</span><span class="chip mono">custom tensor analysis in Python</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-head">
+          <div class="left"><span class="idx">04</span><h3>ML-surrogate screening</h3></div>
+          <span class="chev">＋</span>
+        </div>
+        <div class="pipe-body">
+          <p>Because full first-principles calculations don't scale to thousands of candidates, we train surrogate models on the completed calculations to rank the remaining, uncalculated structures.</p>
+          <div class="tools"><span class="chip mono">scikit-learn</span><span class="chip mono">Python</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-head">
+          <div class="left"><span class="idx">05</span><h3>Visualization &amp; shortlist</h3></div>
+          <span class="chev">＋</span>
+        </div>
+        <div class="pipe-body">
+          <p>Top-ranked structures are modeled and visualized to check for growable, synthesizable geometries, producing a shortlist to hand to experimental collaborators.</p>
+          <div class="tools"><span class="chip mono">VESTA</span><span class="chip mono">OVITO</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>CURRENT THREADS</div>
+      <h2>What we're actively working on</h2>
+    </div>
+    <ul class="interest-list">
+      <li>Building a database of non-centrosymmetric crystals scored for third-order nonlinear response.</li>
+      <li>Improving the accuracy-vs-cost tradeoff of the ML surrogate that triages candidates before DFT.</li>
+      <li>Automating the DFT → phonon → nonlinear-response pipeline with reproducible bash workflows.</li>
+      <li>Modeling how lattice defects and temperature affect photon-triplet generation efficiency.</li>
+      <li>Collaborating with experimentalists to test the lab's top predicted crystal candidates.</li>
+      <li>Extending the screening methodology to layered and low-dimensional materials.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>TOOLBELT</div>
+      <h2>What we build and calculate with</h2>
+    </div>
+    <div class="tool-row">
+      <span class="chip mono">Python</span>
+      <span class="chip mono">Bash</span>
+      <span class="chip mono">VASP</span>
+      <span class="chip mono">Quantum ESPRESSO</span>
+      <span class="chip mono">phonopy</span>
+      <span class="chip mono">pymatgen</span>
+      <span class="chip mono">scikit-learn</span>
+      <span class="chip mono">VESTA</span>
+      <span class="chip mono">OVITO</span>
+      <span class="chip mono">HPC / SLURM</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Voss Lab, Department of Chemistry · [University Name]</p>
+    <div class="flinks">
+      <a href="about.html#contact">Contact</a>
+      <a href="work.html">Publications</a>
+      <a href="join.html">Join the lab</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

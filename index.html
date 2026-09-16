@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voss Lab — Computational Crystal Chemistry</title>
+<meta name="description" content="The Voss Lab develops multiscale computational methods to identify crystals suited to generating entangled photon triplets for quantum and photonic computing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero{
+    padding: 90px 0 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  #lattice-canvas{
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+  }
+  .hero .wrap{ position:relative; z-index:1; }
+  .hero-top{ display:flex; gap: 60px; align-items:flex-end; flex-wrap:wrap; }
+  .hero-copy{ max-width: 620px; }
+  .hero .kicker{ margin-bottom: 18px; }
+  .hero h1{ margin-bottom: 20px; }
+  .hero .lead{ margin-bottom: 30px; }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+  .stat-strip{
+    display:grid; grid-template-columns: repeat(4,1fr);
+    border-top: 1px solid var(--line);
+    margin-top: 70px;
+  }
+  .stat{ padding: 26px var(--edge) 0; border-left: 1px solid var(--line); }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat .num{ font-family: var(--display); font-size: 1.9rem; color:#fff; }
+  .stat .lbl{ font-family: var(--mono); font-size:0.74rem; color: var(--text-faint); margin-top:6px; }
+  @media (max-width:760px){ .stat-strip{ grid-template-columns:1fr 1fr; } .stat{ border-left:none; padding-left:0; margin-bottom:20px;} }
+
+  .focus-grid .card h3{ display:flex; align-items:center; gap:10px; color: var(--cyan); }
+  .focus-grid .card .tag{ font-family: var(--mono); font-size:0.7rem; color: var(--text-faint); margin-bottom:10px; display:block; }
+
+  .pipeline-preview{
+    display:flex; align-items:center; gap:0; flex-wrap:wrap;
+    font-family: var(--mono); font-size:0.82rem; color: var(--text-dim);
+  }
+  .pipeline-preview .step{
+    padding: 10px 16px; border:1px solid var(--line-strong); border-radius:3px;
+    background: var(--surface);
+  }
+  .pipeline-preview .arrow{ padding: 0 10px; color: var(--text-faint); }
+
+  .cta-band{
+    background: linear-gradient(135deg, rgba(82,216,224,0.08), rgba(169,139,255,0.08));
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    padding: 44px var(--edge);
+    display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;
+  }
+  .cta-band h2{ margin-bottom:6px; }
+  .cta-band p{ margin:0; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <span class="node"></span>
+      <span>VOSS LAB<small>Computational Crystal Chemistry</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="work.html">Publications &amp; Projects</a>
+      <a href="about.html">About</a>
+      <a href="join.html">Join the Lab</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <canvas id="lattice-canvas"></canvas>
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-copy">
+        <div class="kicker"><span class="rule"></span>DEPARTMENT OF CHEMISTRY</div>
+        <h1>Finding the crystals that can carry entangled light.</h1>
+        <p class="lead">We build multiscale computational methods — spanning electronic structure, lattice dynamics, and machine-learned screening — to identify crystals capable of generating entangled photon triplets for photonic and quantum computing.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="research.html">Explore the research</a>
+          <a class="btn" href="join.html">Join the lab →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat"><div class="num">3γ</div><div class="lbl">PHOTON TRIPLET GENERATION</div></div>
+      <div class="stat"><div class="num">DFT→ML</div><div class="lbl">MULTISCALE PIPELINE</div></div>
+      <div class="stat"><div class="num">Py / Bash</div><div class="lbl">IN-HOUSE TOOLING</div></div>
+      <div class="stat"><div class="num">UG</div><div class="lbl">UNDERGRADS WELCOME</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>WHAT WE DO</div>
+      <h2>Three questions guide every project</h2>
+    </div>
+    <div class="grid-3 focus-grid">
+      <div class="card">
+        <span class="tag">STRUCTURE</span>
+        <h3>Which crystals qualify?</h3>
+        <p>We screen candidate crystal structures for the nonlinear-optical and symmetry properties required for spontaneous parametric down-conversion into three photons rather than two.</p>
+      </div>
+      <div class="card">
+        <span class="tag">METHOD</span>
+        <h3>How do we scale the search?</h3>
+        <p>First-principles calculations are accurate but slow. We connect DFT, lattice-dynamics, and trained surrogate models so thousands of candidates can be triaged before the expensive step.</p>
+      </div>
+      <div class="card">
+        <span class="tag">APPLICATION</span>
+        <h3>What is it good for?</h3>
+        <p>Sources of entangled photon triplets are a missing piece for certain photonic quantum-computing and quantum-communication architectures — this lab works to supply candidate materials.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>THE PIPELINE</div>
+      <h2>From a crystal file to a screening decision</h2>
+      <p>A short version of the full methodology — see the research page for the expandable walkthrough.</p>
+    </div>
+    <div class="pipeline-preview">
+      <div class="step">structure input</div><div class="arrow">→</div>
+      <div class="step">DFT + phonons</div><div class="arrow">→</div>
+      <div class="step">nonlinear response</div><div class="arrow">→</div>
+      <div class="step">ML surrogate screen</div><div class="arrow">→</div>
+      <div class="step">candidate shortlist</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Curious how a lab like this runs?</h2>
+        <p>Read about the group, the tools we build in Python and bash, and how to get involved as an undergraduate.</p>
+      </div>
+      <a class="btn primary" href="join.html">See how to join</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Voss Lab, Department of Chemistry · [University Name]</p>
+    <div class="flinks">
+      <a href="about.html#contact">Contact</a>
+      <a href="work.html">Publications</a>
+      <a href="join.html">Join the lab</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

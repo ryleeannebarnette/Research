@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join the Lab — Voss Lab</title>
+<title>Join the Lab — Dr. Sanoj's Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -65,7 +65,7 @@
   <div class="nav">
     <a class="brand" href="index.html">
       <span class="node"></span>
-      <span>VOSS LAB<small>Computational Crystal Chemistry</small></span>
+      <span>Dr. Sanoj's LAB<small>Computational Crystal Chemistry</small></span>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <nav class="links">
@@ -82,30 +82,30 @@
   <div class="wrap">
     <div class="kicker"><span class="rule"></span>JOIN THE LAB</div>
     <h1>Undergraduate research positions</h1>
-    <p class="lead">No prior computational chemistry experience is required — most students in the lab learn Python, bash, and the relevant software on the job. What matters is curiosity and a willingness to get comfortable in the terminal.</p>
+    <p class="lead">Basic proficiency in programming is reccomended — most students in the lab develop better Python, Bash Script, computational, and vizualization software skills during their research project. What matters is curiosity and a willingness to learn complex skills</p>
   </div>
 </section>
 
 <section style="padding-top:0;">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><span class="rule"></span>HOW STUDENTS RAMP UP</div>
-      <h2>Three stages, roughly one semester each</h2>
+      <div class="kicker"><span class="rule"></span>Commit One Semester at a Time</div>
+      <h2>What you will do...</h2>
     </div>
     <div class="path-grid">
       <div class="path">
         <span class="idx">01</span>
         <h3>Learn the tools</h3>
-        <p>Get comfortable with the Linux command line, Python for scientific computing, and the basics of running and reading DFT calculations under supervision.</p>
+        <p>Get comfortable with the Linux command terminal, Python for computing, Bash script for streamlining processes, the basics of running DFT calculations,and analyzing computational output.</p>
       </div>
       <div class="path">
         <span class="idx">02</span>
         <h3>Run real calculations</h3>
-        <p>Take on a slice of the screening pipeline — running a batch of structures through part of the workflow and interpreting the results with a mentor.</p>
+        <p>Take on a piece of the computational methodology — running a batch of structures through part of the workflow and interpreting the results.</p>
       </div>
       <div class="path">
         <span class="idx">03</span>
-        <h3>Own a sub-project</h3>
+        <h3>Complete a sub-project</h3>
         <p>Lead a defined piece of the research, often contributing to a manuscript, a conference poster, or one of the lab's open-source tools.</p>
       </div>
     </div>
@@ -116,15 +116,16 @@
   <div class="wrap">
     <div class="section-head">
       <div class="kicker"><span class="rule"></span>IS THIS A GOOD FIT?</div>
-      <h2>Check what applies to you</h2>
-      <p>This isn't a requirements list — it's just a quick, honest gut check. Most successful students in the lab check two or three of these, not all five.</p>
+      <h2>Is this lab right for you?</h2>
+      <p>This isn't a requirements list — it's just a quick check to see if your skills and experience aligns with our work. Most successful students in the lab check two or three of these, not all five.</p>
     </div>
     <ul class="checklist" id="fit-list">
-      <li><input type="checkbox" id="c1"><label for="c1">I've taken (or am taking) general or physical chemistry and liked the math parts.</label></li>
-      <li><input type="checkbox" id="c2"><label for="c2">I've written any code before — Python, MATLAB, even just a class assignment.</label></li>
-      <li><input type="checkbox" id="c3"><label for="c3">I'm curious about quantum computing or photonics, even without formal background.</label></li>
-      <li><input type="checkbox" id="c4"><label for="c4">I like the idea of learning the Linux terminal and command-line tools.</label></li>
-      <li><input type="checkbox" id="c5"><label for="c5">I can commit roughly 6–10 hours a week for at least one semester.</label></li>
+      <li><input type="checkbox" id="c1"><label for="c1">I've taken (or am taking) physical chemistry and enjoyed the quantum mechanical concepts.</label></li>
+      <li><input type="checkbox" id="c2"><label for="c2">I've written code before — Python, MATLAB, JAVA,R, Bash -  even just for a class assignment.</label></li>
+      <li><input type="checkbox" id="c3"><label for="c3">I'm curious about quantum computing or photonics and advancing technology.</label></li>
+       <li><input type="checkbox" id="c4"><label for="c3">I'm curious about materials chemistry and metal organic framework crystals.</label></li>
+      <li><input type="checkbox" id="c5"><label for="c4">I like the idea of learning the Linux terminal,  command-line tools, and how to navigate a server to complete and store calculations.</label></li>
+      <li><input type="checkbox" id="c6"><label for="c5">I can commit roughly 3 hours a week of mentored work in person, and approximately 6 hours of independent work outside of lab, for at least one semester.</label></li>
     </ul>
     <div id="ready-msg" class="mono"></div>
   </div>
@@ -169,7 +170,7 @@
 
 <footer>
   <div class="wrap">
-    <p>© 2026 Voss Lab, Department of Chemistry · [University Name]</p>
+    <p> 2026 Dr. Sanoj's Lab, Department of Chemistry &amp Biochemistry· University of Central Arkansas</p>
     <div class="flinks">
       <a href="about.html#contact">Contact</a>
       <a href="work.html">Publications</a>
@@ -187,9 +188,10 @@
     const checked = [...boxes].filter(b => b.checked).length;
     if(checked === 0){ msg.classList.remove('show'); return; }
     let text;
-    if(checked <= 2) text = `${checked}/5 checked — worth a conversation. Reach out and we'll figure out the rest together.`;
-    else if(checked <= 4) text = `${checked}/5 checked — sounds like a solid fit. We'd love to hear from you.`;
-    else text = `5/5 checked — you're exactly who this lab is looking for. Email us today.`;
+    if(checked <= 2) text = `${checked}/6 checked — doesn't seem to align with your interests. Reach out to get more information.`;
+    else if(checked <= 3) text = `${checked}/6 checked — worth a conversation. Reach out and we'll figure out the rest together.`;
+    else if(checked <= 5) text = `${checked}/6 checked — sounds like a solid fit. We'd love to hear from you.`;
+    else text = `6/6 checked — you're exactly who this lab is looking for. Email us today.`;
     msg.textContent = text;
     msg.classList.add('show');
   }

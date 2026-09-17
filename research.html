@@ -82,7 +82,7 @@
   <div class="nav">
     <a class="brand" href="index.html">
       <span class="node"></span>
-      <span>VOSS LAB<small>Computational Crystal Chemistry</small></span>
+      <span>Dr. Sanoj's LAB<small>Computational Crystal Chemistry</small></span>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <nav class="links">
@@ -132,23 +132,23 @@
     <div class="pipeline-accordion">
       <div class="pipe-step open">
         <div class="pipe-head">
-          <div class="left"><span class="idx">01</span><h3>Structure ingestion &amp; symmetry filtering</h3></div>
+          <div class="left"><span class="idx">01</span><h3>Structure vizualization &amp; symmetry identification</h3></div>
           <span class="chev">＋</span>
         </div>
         <div class="pipe-body">
           <p>Candidate crystal structures are pulled from open structure databases and filtered by point-group symmetry — only non-centrosymmetric crystals can show the nonlinear response we need.</p>
-          <div class="tools"><span class="chip mono">Python</span><span class="chip mono">pymatgen</span><span class="chip mono">bash batch scripts</span></div>
+          <div class="tools"><span class="chip mono">Crystal File (.cif)</span><span class="chip mono">VESTA</span><span class="chip mono">QUANTUM ESPRESSO</span></div>
         </div>
       </div>
 
       <div class="pipe-step">
         <div class="pipe-head">
-          <div class="left"><span class="idx">02</span><h3>Electronic structure (DFT) &amp; phonons</h3></div>
+          <div class="left"><span class="idx">02</span><h3>Electronic structure (DFT) &amp; polarization behavior</h3></div>
           <span class="chev">＋</span>
         </div>
         <div class="pipe-body">
-          <p>Surviving candidates go through density-functional-theory relaxation and phonon calculations to confirm dynamical stability before any expensive optical-property calculation is attempted.</p>
-          <div class="tools"><span class="chip mono">VASP / Quantum ESPRESSO</span><span class="chip mono">phonopy</span></div>
+          <p>Surviving candidates go through density-functional-theory relaxation and optical property, polarization calculations to confirm dynamical stability.</p>
+          <div class="tools"><span class="chip mono">Quantum ESPRESSO</span><span class="chip mono">Python</span></div><span class="chip mono">Bash Script</span></div>
         </div>
       </div>
 
@@ -159,7 +159,7 @@
         </div>
         <div class="pipe-body">
           <p>We compute third-order nonlinear susceptibility tensors and phase-matching conditions to test whether a stable, symmetry-allowed crystal can actually support three-photon down-conversion.</p>
-          <div class="tools"><span class="chip mono">DFPT</span><span class="chip mono">custom tensor analysis in Python</span></div>
+          <div class="tools"><span class="chip mono">Python</span><span class="chip mono">Bash scrip</span></div><span class="chip mono">YAMBO</span></div>
         </div>
       </div>
 
@@ -170,7 +170,7 @@
         </div>
         <div class="pipe-body">
           <p>Because full first-principles calculations don't scale to thousands of candidates, we train surrogate models on the completed calculations to rank the remaining, uncalculated structures.</p>
-          <div class="tools"><span class="chip mono">scikit-learn</span><span class="chip mono">Python</span></div>
+          <div class="tools"><span class="chip mono">FILL IN</span><span class="chip mono">Python</span></div>
         </div>
       </div>
 
@@ -181,7 +181,7 @@
         </div>
         <div class="pipe-body">
           <p>Top-ranked structures are modeled and visualized to check for growable, synthesizable geometries, producing a shortlist to hand to experimental collaborators.</p>
-          <div class="tools"><span class="chip mono">VESTA</span><span class="chip mono">OVITO</span></div>
+          <div class="tools"><span class="chip mono">VESTA</span><span class="chip mono">FILL IN</span></div>
         </div>
       </div>
     </div>

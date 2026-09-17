@@ -42,6 +42,32 @@
   .proj .stack{ margin-top: 14px; display:flex; gap:8px; flex-wrap:wrap; }
   .proj a.repo{ font-family: var(--mono); font-size: 0.8rem; color: var(--violet); display:inline-block; margin-top:14px; }
   .proj a.repo:hover{ color: var(--cyan); }
+
+  /* programs showcase */
+  .prog-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 900px){ .prog-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 620px){ .prog-grid{ grid-template-columns: 1fr; } }
+  .program{
+    border:1px solid var(--line); border-radius:5px; padding: 22px;
+    background: var(--surface);
+    display:flex; flex-direction:column;
+  }
+  .program .prog-icon{
+    font-family: var(--mono); font-size:0.72rem; color: var(--cyan);
+    margin-bottom:12px;
+  }
+  .program h3{ font-size: 1rem; margin-bottom:8px; }
+  .program p{ font-size: 0.9rem; margin-bottom: 0; flex-grow:1; }
+  .program .stack{ margin-top: 14px; display:flex; gap:8px; flex-wrap:wrap; }
+  .program pre{
+    margin-top: 14px; margin-bottom:0;
+    background: var(--bg-alt); border:1px solid var(--line);
+    border-radius:4px; padding: 12px 14px;
+    font-family: var(--mono); font-size:0.74rem; color: var(--text-dim);
+    overflow-x:auto; white-space:pre;
+  }
+  .program a.repo{ font-family: var(--mono); font-size: 0.78rem; color: var(--violet); display:inline-block; margin-top:14px; }
+  .program a.repo:hover{ color: var(--cyan); }
 </style>
 </head>
 <body>
@@ -144,9 +170,44 @@
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="rule"></span>PROGRAMS</div>
+      <h2>Individual scripts &amp; tools we've built</h2>
+      <p>Smaller, single-purpose programs written to run pieces of the screening pipeline — swap in your own names, descriptions, and repo links.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="program">
+        <span class="prog-icon">01 · .cif → filtered list</span>
+        <h3>PROGRAM NAME</h3>
+        <p>Describe what this program does — e.g. reads a folder of .cif files, checks point-group symmetry, and outputs the non-centrosymmetric candidates.</p>
+        <div class="stack"><span class="chip mono">Python</span></div>
+        <a class="repo" href="#">view code →</a>
+      </div>
+      <div class="program">
+        <span class="prog-icon">02 · job automation</span>
+        <h3>PROGRAM NAME</h3>
+        <p>Describe what this program does — e.g. submits and monitors Quantum ESPRESSO / YAMBO jobs on the HPC cluster and collects the output files.</p>
+        <div class="stack"><span class="chip mono">Bash</span><span class="chip mono">SLURM</span></div>
+        <a class="repo" href="#">view code →</a>
+      </div>
+      <div class="program">
+        <span class="prog-icon">03 · data analysis</span>
+        <h3>PROGRAM NAME</h3>
+        <p>Describe what this program does — e.g. parses calculation output to compute X<sup>3</sup> nonlinearity characteristics and flags strong candidates.</p>
+        <div class="stack"><span class="chip mono">Python</span></div>
+        <pre>$ python analyze_output.py --input ./results/
+&gt; candidate: ZnMOF-14  X3: 0.62  PASS</pre>
+        <a class="repo" href="#">view code →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
-    <p> 2026 Dr. Sanoj's Lab, Department of Chemistry &amp Biochemistry · University of Central Arkansas</p>
+    <p>© 2026 Dr. Sanoj's Lab, Department of Chemistry &amp; Biochemistry · University of Central Arkansas</p>
     <div class="flinks">
       <a href="about.html#contact">Contact</a>
       <a href="work.html">Publications</a>

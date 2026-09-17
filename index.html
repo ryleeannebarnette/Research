@@ -41,15 +41,30 @@
   .focus-grid .card h3{ display:flex; align-items:center; gap:10px; color: var(--cyan); }
   .focus-grid .card .tag{ font-family: var(--mono); font-size:0.7rem; color: var(--text-faint); margin-bottom:10px; display:block; }
 
-  .pipeline-preview{
-    display:flex; align-items:center; gap:0; flex-wrap:wrap;
-    font-family: var(--mono); font-size:0.82rem; color: var(--text-dim);
+  .methodology-preview{
+    display:flex; align-items:stretch; gap:14px; flex-wrap:wrap;
+    font-family: var(--mono); font-size:0.78rem; color: var(--text-dim);
   }
-  .pipeline-preview .step{
-    padding: 10px 16px; border:1px solid var(--line-strong); border-radius:3px;
+  .methodology-preview .step{
+    padding: 14px 16px; border:1px solid var(--line-strong); border-radius:3px;
     background: var(--surface);
+    flex: 1 1 190px;
+    max-width: 240px;
+    line-height: 1.45;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
   }
-  .pipeline-preview .arrow{ padding: 0 10px; color: var(--text-faint); }
+  .methodology-preview .arrow{
+    display:flex; align-items:center;
+    padding: 0 2px; color: var(--text-faint);
+    flex: 0 0 auto;
+  }
+  @media (max-width: 760px){
+    .methodology-preview{ flex-direction:column; }
+    .methodology-preview .step{ max-width:none; }
+    .methodology-preview .arrow{ transform: rotate(90deg); padding: 4px 0; align-self:flex-start; margin-left: 20px; }
+  }
 
   .cta-band{
     background: linear-gradient(135deg, rgba(82,216,224,0.08), rgba(169,139,255,0.08));
@@ -99,7 +114,7 @@
     <div class="stat-strip">
       <div class="stat"><div class="num">VESTA</div><div class="lbl">Vizualization Software</div></div>
       <div class="stat"><div class="num">QUANTUM ESPRESSO</div><div class="lbl">Molecular Modeling</div></div>
-      <div class="stat"><div class="num">Python & Bash Script</div><div class="lbl">Programming & Calculations</div></div>
+      <div class="stat"><div class="num">Python &amp; Bash Script</div><div class="lbl">Programming &amp; Calculations</div></div>
       <div class="stat"><div class="num">YAMBO</div><div class="lbl">DFT Based Calculations</div></div>
     </div>
   </div>
@@ -134,18 +149,17 @@
 <section>
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><span class="rule"></span>THE PIPELINE</div>
+      <div class="kicker"><span class="rule"></span>THE METHODOLOGY</div>
       <h2>From a crystal file to a screening decision</h2>
       <p>A short version of the full methodology — see the research page for the expandable walkthrough.</p>
     </div>
-    <div class="Methodoloy-preview">
+    <div class="methodology-preview">
       <div class="step">crystal file input (.cif)</div><div class="arrow">→</div>
-      <div class="step">Vizualize Crystal Material (QUANTUM ESPRESSO)</div><div class="arrow">→</div>
-      <div class="step">Peform Refractive Index, Polarization, and Birefringence Calculations (Python & YAMBO)</div><div class="arrow">→</div>
-      <div class="step"></div>Analyze the Data - Calculate X<sup>3</sup> and nonlinearity characteristics <div class="arrow">→</div>
-      <div class="step">Calculate Photon Entanglement Time </div>
-      <div class="step">Determine Capability of Crystal Material</div>
-
+      <div class="step">visualize crystal material (Quantum ESPRESSO)</div><div class="arrow">→</div>
+      <div class="step">perform refractive index, polarization &amp; birefringence calculations (Python &amp; YAMBO)</div><div class="arrow">→</div>
+      <div class="step">analyze data — calculate X<sup>3</sup> &amp; nonlinearity characteristics</div><div class="arrow">→</div>
+      <div class="step">calculate photon entanglement time</div><div class="arrow">→</div>
+      <div class="step">determine capability of crystal material</div>
     </div>
   </div>
 </section>
@@ -164,7 +178,7 @@
 
 <footer>
   <div class="wrap">
-    <p>© 2026 Dr. Sanoj's Lab, Department of Chemistry & Biochemistry · University of Central Arkansas</p>
+    <p>© 2026 Dr. Sanoj's Lab, Department of Chemistry &amp; Biochemistry · University of Central Arkansas</p>
     <div class="flinks">
       <a href="about.html#contact">Contact</a>
       <a href="work.html">Publications</a>
